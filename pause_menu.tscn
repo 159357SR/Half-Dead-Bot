@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://birotj8ymful6"]
+
+[ext_resource type="Script" uid="uid://bf0fnksfa5sqp" path="res://pause_menu.gd" id="1_nwcfo"]
+[ext_resource type="Texture2D" uid="uid://byft2tqwry7kg" path="res://31.jpg" id="2_05uyy"]
+[ext_resource type="FontFile" uid="uid://3136ep2o8bcc" path="res://NovariaPersonalUse-vnDJ7.otf" id="3_05uyy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05uyy"]
+bg_color = Color(1.7447397e-07, 0.3750118, 4.813075e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p81d2"]
+bg_color = Color(0.49163997, 0.49163997, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nc7s"]
+bg_color = Color(0.6039216, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwcfo"]
+bg_color = Color(0, 0, 0, 0.42352942)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3xb4"]
+bg_color = Color(0.49019608, 0.49019608, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxa3g"]
+bg_color = Color(0.6039216, 0, 0, 1)
+
+[node name="pause_menu" type="Control" unique_id=1890064184]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nwcfo")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=510972226]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_05uyy")
+expand_mode = 1
+
+[node name="Resume" type="Button" parent="." unique_id=555136099]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 112.0
+offset_right = 768.0
+offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("3_05uyy")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_05uyy")
+text = "RESUME"
+
+[node name="Restart" type="Button" parent="." unique_id=1342757858]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 768.0
+offset_bottom = 336.0
+theme_override_fonts/font = ExtResource("3_05uyy")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_p81d2")
+text = "RESTART"
+
+[node name="MainMenu" type="Button" parent="." unique_id=1964134702]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 400.0
+offset_right = 768.0
+offset_bottom = 480.0
+theme_override_fonts/font = ExtResource("3_05uyy")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_2nc7s")
+text = "MAIN MENU"
+
+[node name="ConfirmScreen" type="ColorRect" parent="." unique_id=917591291]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.08645603, 0.08645603, 0.08645603, 0.7176471)
+
+[node name="Label" type="Label" parent="ConfirmScreen" unique_id=749218222]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 228.0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_05uyy")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwcfo")
+text = "ARE YOU SURE ??"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ConfirmScreen/Label" unique_id=1004549593]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 173.0
+offset_right = 790.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(1, 0.16470589, 0, 1)
+theme_override_fonts/font = ExtResource("3_05uyy")
+theme_override_font_sizes/font_size = 20
+text = "NOTE: ALL PROGRESS WILL BE LOST      "
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="YesButton" type="Button" parent="ConfirmScreen" unique_id=1194143454]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 768.0
+offset_bottom = 336.0
+theme_override_fonts/font = ExtResource("3_05uyy")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_d3xb4")
+text = "YES"
+
+[node name="NoButton" type="Button" parent="ConfirmScreen" unique_id=714456236]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 400.0
+offset_right = 768.0
+offset_bottom = 480.0
+theme_override_fonts/font = ExtResource("3_05uyy")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_mxa3g")
+text = "NO
+"
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="ConfirmScreen/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="ConfirmScreen/NoButton" to="." method="_on_no_button_pressed"]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dtuhl4ioxsa2b"]
+
+[ext_resource type="Texture2D" uid="uid://df7fiqrjuystt" path="res://icon.svg" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://bvfskto6m7vm7" path="res://sprite_2d.gd" id="2_epypp"]
+
+[node name="Node2D" type="Node2D" unique_id=2025727402]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=661500501]
+offset_left = -1359.0
+offset_top = -1094.0
+offset_right = 1349.0
+offset_bottom = 1131.0
+color = Color(0.39576998, 0.00061039417, 0.51245725, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1173029747]
+texture = ExtResource("1_0e48y")
+script = ExtResource("2_epypp")

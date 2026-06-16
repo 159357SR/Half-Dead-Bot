@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://gxri8rdelyw5"]
+
+[ext_resource type="Texture2D" uid="uid://byft2tqwry7kg" path="res://31.jpg" id="1_c1t8d"]
+[ext_resource type="Script" uid="uid://cmt3qjhpngeh0" path="res://credits.gd" id="1_g4wvt"]
+[ext_resource type="FontFile" uid="uid://3136ep2o8bcc" path="res://NovariaPersonalUse-vnDJ7.otf" id="1_nm7lk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1t8d"]
+bg_color = Color(0.4428132, 5.255878e-05, 0.3899606, 1)
+
+[node name="Credits" type="Control" unique_id=1668101516]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g4wvt")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1908546824]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_c1t8d")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=1487406993]
+layout_mode = 0
+offset_top = 99.0
+offset_right = 1152.0
+offset_bottom = 315.0
+theme_override_fonts/font = ExtResource("1_nm7lk")
+theme_override_font_sizes/font_size = 40
+text = "DEVELOPED BY :
+SHADOW"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=200940004]
+layout_mode = 0
+offset_top = 258.0
+offset_right = 1152.0
+offset_bottom = 447.0
+theme_override_fonts/font = ExtResource("1_nm7lk")
+theme_override_font_sizes/font_size = 40
+text = "TESTED BY:
+RAYMOUS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=299861788]
+layout_mode = 0
+offset_left = 457.0
+offset_top = 478.0
+offset_right = 704.0
+offset_bottom = 554.0
+theme_override_fonts/font = ExtResource("1_nm7lk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_c1t8d")
+text = "BACK"
