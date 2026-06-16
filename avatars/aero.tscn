@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dvxqfj8tv4ttv"]
+
+[ext_resource type="Script" uid="uid://bvfskto6m7vm7" path="res://scripts/sprite_2d.gd" id="1_00fog"]
+[ext_resource type="Texture2D" uid="uid://ctvigxcqbous3" path="res://assests/images/AERO1.png" id="2_00fog"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir8iy"]
+radius = 24.04683
+
+[node name="Player" type="Area2D" unique_id=2028080896 groups=["Player"]]
+z_index = 1
+script = ExtResource("1_00fog")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=397164016]
+position = Vector2(0, 1.5)
+shape = SubResource("CircleShape2D_ir8iy")
+debug_color = Color(0.40241832, 0.11714785, 0.013704752, 0.35686275)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1373917910]
+position = Vector2(0.3287311, 18.537762)
+scale = Vector2(0.029833633, 0.0341938)
+texture = ExtResource("2_00fog")
+region_enabled = true
+region_rect = Rect2(163.14868, 98.390625, 1788.3281, 2722.3594)

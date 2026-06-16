@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://d4ii2ag4debpf"]
+
+[ext_resource type="Script" uid="uid://blj3q8o2q65qh" path="res://scripts/game_over.gd" id="1_7m3ot"]
+[ext_resource type="Texture2D" uid="uid://byft2tqwry7kg" path="res://assests/backgrounds/31.jpg" id="2_v3hpu"]
+[ext_resource type="FontFile" uid="uid://3136ep2o8bcc" path="res://assests/fonts/NovariaPersonalUse-vnDJ7.otf" id="3_irg28"]
+[ext_resource type="AudioStream" uid="uid://dogjh635gjy12" path="res://assests/sounds/freesound_community-electricity-101990.mp3" id="4_2jtsn"]
+[ext_resource type="AudioStream" uid="uid://0hcruvmt6uv2" path="res://assests/sounds/pwlpl-digital-glitch-361820.mp3" id="5_8bugq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xapjj"]
+font_size = 50
+font_color = Color(18.892, 18.892, 0, 1)
+outline_size = 10
+outline_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yxx3c"]
+font_size = 35
+font_color = Color(1, 1, 0, 1)
+outline_size = 5
+outline_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8u835"]
+bg_color = Color(0, 0.3764706, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftari"]
+bg_color = Color(0.6039216, 0, 0, 1)
+
+[node name="GameOver" type="Control" unique_id=1688177235]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7m3ot")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=550372830]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_v3hpu")
+expand_mode = 1
+
+[node name="Over" type="Label" parent="." unique_id=1474766549]
+layout_mode = 0
+offset_top = 68.0
+offset_right = 1152.0
+offset_bottom = 225.0
+theme_override_fonts/font = ExtResource("3_irg28")
+text = "! ! GAME OVER ! !"
+label_settings = SubResource("LabelSettings_xapjj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndScore" type="Label" parent="." unique_id=1933118345]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 1152.0
+offset_bottom = 300.0
+theme_override_fonts/font = ExtResource("3_irg28")
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_yxx3c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgain" type="Button" parent="." unique_id=2020061825]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 363.0
+offset_right = 676.0
+offset_bottom = 421.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.9490196, 0.9490196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_irg28")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_8u835")
+text = "PLAY AGAIN"
+
+[node name="Quit" type="Button" parent="." unique_id=1849234140]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 451.0
+offset_right = 676.0
+offset_bottom = 509.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_irg28")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ftari")
+text = "MAIN MENU
+"
+
+[node name="BatteryMusic" type="AudioStreamPlayer" parent="." unique_id=160385427]
+stream = ExtResource("4_2jtsn")
+volume_db = 3.0
+
+[node name="VirusMusic" type="AudioStreamPlayer" parent="." unique_id=1806125896]
+stream = ExtResource("5_8bugq")
+volume_db = 7.0
+
+[connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

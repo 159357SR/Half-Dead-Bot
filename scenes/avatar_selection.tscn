@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dtckm7denkk07"]
+
+[ext_resource type="Script" uid="uid://dpbgqx5bvhsha" path="res://scenes/avatar_selection.gd" id="1_cjpck"]
+[ext_resource type="FontFile" uid="uid://3136ep2o8bcc" path="res://assests/fonts/NovariaPersonalUse-vnDJ7.otf" id="2_hgfpp"]
+
+[node name="AvatarSelection" type="Control" unique_id=524006247]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cjpck")
+
+[node name="CarouselBg" type="ColorRect" parent="." unique_id=2127558435]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.015686275, 0.5529412)
+
+[node name="BotImage" type="TextureRect" parent="." unique_id=890113352]
+layout_mode = 0
+offset_left = 305.0
+offset_right = 846.0
+offset_bottom = 324.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="." unique_id=1820112826]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 324.0
+offset_right = 846.0
+offset_bottom = 431.0
+theme_override_fonts/font = ExtResource("2_hgfpp")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescLabel" type="Label" parent="." unique_id=1845092748]
+layout_mode = 0
+offset_top = 431.0
+offset_right = 846.0
+offset_bottom = 648.0
+theme_override_fonts/font = ExtResource("2_hgfpp")
+theme_override_font_sizes/font_size = 48
+autowrap_mode = 3
+
+[node name="PrevButton" type="Button" parent="." unique_id=695579581]
+layout_mode = 0
+offset_top = 324.0
+offset_right = 305.0
+offset_bottom = 431.0
+theme_override_fonts/font = ExtResource("2_hgfpp")
+theme_override_font_sizes/font_size = 44
+text = "PREV"
+
+[node name="NextButton" type="Button" parent="." unique_id=636797254]
+layout_mode = 0
+offset_left = 846.0
+offset_top = 324.0
+offset_right = 1151.0
+offset_bottom = 431.0
+theme_override_fonts/font = ExtResource("2_hgfpp")
+theme_override_font_sizes/font_size = 44
+text = "NEXT
+"
+
+[node name="SelectButton" type="Button" parent="." unique_id=1572529146]
+layout_mode = 0
+offset_left = 846.0
+offset_top = 549.0
+offset_right = 1151.0
+offset_bottom = 651.0
+theme_override_fonts/font = ExtResource("2_hgfpp")
+theme_override_font_sizes/font_size = 44
+text = "SELECT"

@@ -1,0 +1,281 @@
+[gd_scene format=3 uid="uid://dtuhl4ioxsa2b"]
+
+[ext_resource type="Script" uid="uid://bp36rxgr02q2e" path="res://scripts/node_2d.gd" id="1_k6u5g"]
+[ext_resource type="Texture2D" uid="uid://byft2tqwry7kg" path="res://assests/backgrounds/31.jpg" id="2_coh8c"]
+[ext_resource type="FontFile" uid="uid://3136ep2o8bcc" path="res://assests/fonts/NovariaPersonalUse-vnDJ7.otf" id="3_kmyi7"]
+[ext_resource type="Script" uid="uid://4h16omp01a2t" path="res://scripts/score_label.gd" id="4_ey6mn"]
+[ext_resource type="AudioStream" uid="uid://b8if7dcdgal01" path="res://assests/sounds/floraphonic-power-up-sparkle-1-177983.mp3" id="5_2sxpt"]
+[ext_resource type="Script" uid="uid://cxyjy5bu10ju7" path="res://scripts/time_label.gd" id="6_pblkq"]
+[ext_resource type="AudioStream" uid="uid://ce2uwyv8x3dwc" path="res://assests/sounds/lazarosv-rhythm-revival-loop-part-1-242030.mp3" id="7_22dhx"]
+[ext_resource type="Script" uid="uid://cx05qhha7gomb" path="res://scripts/coin.gd" id="8_diulx"]
+[ext_resource type="Texture2D" uid="uid://bspralylh7hll" path="res://assests/logos/—Pngtree—mobile phone charging icon_5464971.png" id="9_nuk1v"]
+[ext_resource type="Script" uid="uid://od2dkjysiix8" path="res://scripts/super_charge.gd" id="10_l0qat"]
+[ext_resource type="AudioStream" uid="uid://4733voiyofgt" path="res://assests/sounds/freesound_community-coin-upaif-14631.mp3" id="11_wpu3o"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="12_g3arh"]
+[ext_resource type="Texture2D" uid="uid://03p1acnyf78n" path="res://assests/logos/—Pngtree—pause icon_4479731.png" id="13_unr0g"]
+[ext_resource type="PackedScene" uid="uid://birotj8ymful6" path="res://scenes/pause_menu.tscn" id="14_jt3n0"]
+[ext_resource type="Texture2D" uid="uid://d1lwxggmxynyl" path="res://assests/logos/SnowflakeInACircle.png" id="15_7pfoh"]
+[ext_resource type="Texture2D" uid="uid://bf6hy8ip8wjxu" path="res://assests/logos/InfiniteBatteryInACircle.png" id="16_mchk4"]
+[ext_resource type="Texture2D" uid="uid://dry62gaq0kngj" path="res://assests/logos/FastForwardInACircle.png" id="17_gmqbl"]
+[ext_resource type="Script" uid="uid://bvmdm7yllha10" path="res://scripts/freeze_powerup.gd" id="18_qkxkb"]
+[ext_resource type="Script" uid="uid://bg5w18rw6erd4" path="res://scripts/infinite_powerup.gd" id="19_k8pa6"]
+[ext_resource type="Script" uid="uid://dosu83kbh5bxr" path="res://scripts/speed_powerup.gd" id="20_4bto7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d21ai"]
+font_size = 30
+font_color = Color(1, 1, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rj586"]
+font_size = 30
+font_color = Color(0, 1, 1, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4d7sh"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nr8wp"]
+radius = 17.029387
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bjha6"]
+radius = 20.000122
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gt76g"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1fr6y"]
+radius = 20.024984
+
+[node name="Node2D" type="Node2D" unique_id=2025727402]
+script = ExtResource("1_k6u5g")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=848286294]
+offset_right = 1152.0
+offset_bottom = 649.0
+texture = ExtResource("2_coh8c")
+expand_mode = 1
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=2004925367]
+z_index = 3
+offset_right = 151.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("3_kmyi7")
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_d21ai")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_ey6mn")
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="." unique_id=534234382]
+stream = ExtResource("5_2sxpt")
+
+[node name="ChargeLabel" type="Label" parent="." unique_id=1149668841]
+z_index = 3
+offset_left = 192.0
+offset_right = 431.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("3_kmyi7")
+text = "Charge: 0"
+label_settings = SubResource("LabelSettings_rj586")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_pblkq")
+
+[node name="Timer" type="Timer" parent="ChargeLabel" unique_id=295046466]
+wait_time = 0.1
+autostart = true
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1623934231]
+stream = ExtResource("7_22dhx")
+volume_db = -5.0
+autoplay = true
+
+[node name="Coin" type="Area2D" parent="." unique_id=371184801]
+z_index = 1
+position = Vector2(151, 155)
+script = ExtResource("8_diulx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin" unique_id=1554156055]
+self_modulate = Color(18.892157, 18.892157, 0, 1)
+position = Vector2(-2.0000021, 0.99999124)
+scale = Vector2(0.007200288, 0.007200289)
+texture = ExtResource("9_nuk1v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin" unique_id=340934452]
+shape = SubResource("CircleShape2D_4d7sh")
+debug_color = Color(0.54699814, 0.56130475, 0.19227174, 0.41960785)
+
+[node name="SuperCharge" type="Area2D" parent="." unique_id=90846863]
+position = Vector2(289, -1000)
+script = ExtResource("10_l0qat")
+
+[node name="Sprite2D" type="Sprite2D" parent="SuperCharge" unique_id=1295492030]
+self_modulate = Color(18.892, 0, 0, 1)
+position = Vector2(-2.0000038, 1.4999995)
+scale = Vector2(0.0076803076, 0.007560302)
+texture = ExtResource("9_nuk1v")
+
+[node name="SuperCol" type="CollisionShape2D" parent="SuperCharge" unique_id=1626382637]
+shape = SubResource("CircleShape2D_nr8wp")
+
+[node name="Timer" type="Timer" parent="SuperCharge" unique_id=780584257]
+wait_time = 7.0
+
+[node name="SuperChargeSound" type="AudioStreamPlayer" parent="." unique_id=1154441273]
+stream = ExtResource("11_wpu3o")
+volume_db = 5.0
+
+[node name="MobileControls" type="CanvasLayer" parent="." unique_id=468790156]
+
+[node name="Virtual Joystick" parent="MobileControls" unique_id=1202306259 instance=ExtResource("12_g3arh")]
+modulate = Color(1.8737413, 1.8737413, 1.8737413, 0.3137255)
+z_index = 2
+offset_top = -592.0
+offset_right = 1152.0
+offset_bottom = 1.0
+pressed_color = Color(18.873888, 18.825672, 18.832354, 1)
+joystick_mode = 1
+visibility_mode = 2
+action_left = "left"
+action_right = "right"
+action_up = "up"
+action_down = "down"
+
+[node name="PauseButton" type="TextureButton" parent="." unique_id=481627302]
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+z_index = 3
+offset_left = 1096.0
+offset_right = 1152.0
+offset_bottom = 56.0
+texture_normal = ExtResource("13_unr0g")
+ignore_texture_size = true
+stretch_mode = 0
+flip_v = true
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1222992437]
+layer = 10
+
+[node name="pause_menu" parent="UILayer" unique_id=1890064184 instance=ExtResource("14_jt3n0")]
+visible = false
+
+[node name="FreezeClock" type="TextureProgressBar" parent="UILayer" unique_id=2088891685]
+offset_left = 840.0
+offset_top = 8.0
+offset_right = 888.0
+offset_bottom = 56.0
+step = 0.1
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = ExtResource("15_7pfoh")
+texture_progress = ExtResource("15_7pfoh")
+tint_under = Color(1, 1, 1, 0.58431375)
+tint_progress = Color(0, 1, 1, 1)
+
+[node name="InfiniteClock" type="TextureProgressBar" parent="UILayer" unique_id=1008916728]
+offset_left = 968.0
+offset_top = 8.0
+offset_right = 1016.0
+offset_bottom = 56.0
+step = 0.1
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = ExtResource("16_mchk4")
+texture_progress = ExtResource("16_mchk4")
+tint_under = Color(1, 1, 1, 0.58431375)
+tint_progress = Color(0, 1, 0, 1)
+
+[node name="SpeedClock" type="TextureProgressBar" parent="UILayer" unique_id=1544103332]
+offset_left = 904.0
+offset_top = 8.0
+offset_right = 952.0
+offset_bottom = 56.0
+step = 0.1
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = ExtResource("17_gmqbl")
+texture_progress = ExtResource("17_gmqbl")
+tint_under = Color(1, 1, 1, 0.58431375)
+tint_progress = Color(1, 0.5019608, 0, 1)
+
+[node name="FreezePowerup" type="Area2D" parent="." unique_id=733357793]
+position = Vector2(367, -112)
+script = ExtResource("18_qkxkb")
+
+[node name="Sprite2D" type="Sprite2D" parent="FreezePowerup" unique_id=30373630]
+modulate = Color(0, 18.892157, 18.892157, 1)
+self_modulate = Color(18.892, 18.892, 18.892, 1)
+position = Vector2(0, 0.2)
+scale = Vector2(0.03255815, 0.032306533)
+texture = ExtResource("15_7pfoh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FreezePowerup" unique_id=1877730067]
+position = Vector2(-0.00012207031, -0.00012207031)
+shape = SubResource("CircleShape2D_bjha6")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="SpawnTimer" type="Timer" parent="FreezePowerup" unique_id=1072721183]
+
+[node name="DespawnTimer" type="Timer" parent="FreezePowerup" unique_id=439740038]
+
+[node name="ActiveTimer" type="Timer" parent="FreezePowerup" unique_id=785705085]
+
+[node name="InfinitePowerup" type="Area2D" parent="." unique_id=497253067]
+position = Vector2(255, -112)
+script = ExtResource("19_k8pa6")
+
+[node name="Sprite2D" type="Sprite2D" parent="InfinitePowerup" unique_id=179450326]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(0, 0.1)
+scale = Vector2(0.032061055, 0.03242837)
+texture = ExtResource("16_mchk4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfinitePowerup" unique_id=838606812]
+shape = SubResource("CircleShape2D_gt76g")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="SpawnTimer" type="Timer" parent="InfinitePowerup" unique_id=189742978]
+
+[node name="DespawnTimer" type="Timer" parent="InfinitePowerup" unique_id=1424881277]
+
+[node name="ActiveTimer" type="Timer" parent="InfinitePowerup" unique_id=1252465935]
+
+[node name="SpeedPowerup" type="Area2D" parent="." unique_id=2117168701]
+position = Vector2(151, -112)
+script = ExtResource("20_4bto7")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpeedPowerup" unique_id=893492749]
+modulate = Color(1, 0.5019608, 0, 1)
+position = Vector2(-0.1, 0)
+scale = Vector2(0.03230654, 0.03228228)
+texture = ExtResource("17_gmqbl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeedPowerup" unique_id=17840903]
+shape = SubResource("CircleShape2D_1fr6y")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="DespawnTimer" type="Timer" parent="SpeedPowerup" unique_id=1628757174]
+
+[node name="ActiveTimer" type="Timer" parent="SpeedPowerup" unique_id=1904059871]
+
+[connection signal="timeout" from="ChargeLabel/Timer" to="ChargeLabel" method="_on_timer_timeout"]
+[connection signal="area_entered" from="Coin" to="Coin" method="_on_area_entered"]
+[connection signal="area_entered" from="SuperCharge" to="SuperCharge" method="_on_area_entered"]
+[connection signal="timeout" from="SuperCharge/Timer" to="SuperCharge" method="_on_timer_timeout"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="area_entered" from="FreezePowerup" to="FreezePowerup" method="_on_area_entered"]
+[connection signal="timeout" from="FreezePowerup/SpawnTimer" to="FreezePowerup" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="FreezePowerup/DespawnTimer" to="FreezePowerup" method="_on_despawn_timer_timeout"]
+[connection signal="timeout" from="FreezePowerup/ActiveTimer" to="FreezePowerup" method="_on_active_timer_timeout"]
+[connection signal="area_entered" from="InfinitePowerup" to="InfinitePowerup" method="_on_area_entered"]
+[connection signal="timeout" from="InfinitePowerup/SpawnTimer" to="InfinitePowerup" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="InfinitePowerup/DespawnTimer" to="InfinitePowerup" method="_on_despawn_timer_timeout"]
+[connection signal="timeout" from="InfinitePowerup/ActiveTimer" to="InfinitePowerup" method="_on_active_timer_timeout"]
+[connection signal="area_entered" from="SpeedPowerup" to="SpeedPowerup" method="_on_area_entered"]
+[connection signal="timeout" from="SpeedPowerup/DespawnTimer" to="SpeedPowerup" method="_on_despawn_timer_timeout"]
+[connection signal="timeout" from="SpeedPowerup/ActiveTimer" to="SpeedPowerup" method="_on_active_timer_timeout"]

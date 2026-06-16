@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://dqswivig08lgw"]
+
+[ext_resource type="Texture2D" uid="uid://dfir81ifhjpq4" path="res://assests/images/—Pngtree—robot logo icon logo technology_10843943.png" id="1_oknju"]
+
+[resource]
+atlas = ExtResource("1_oknju")
+region = Rect2(594.969, 478.21484, 427.14844, 677.7422)
