@@ -8,6 +8,7 @@ extends Area2D
 @onready var ui_clock = $"../UILayer/FreezeClock" 
 
 var screen_size
+var freeze_time = 8.0
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -43,14 +44,20 @@ func _on_despawn_timer_timeout():
 	spawn_timer.start() 
 
 func _on_area_entered(area):
-	if area.name == "Player":
+	if area.is_in_group("Player"):
 		position.y = -1000
 		despawn_timer.stop()
+		
+		var current_freeze_time = freeze_time
+		
+		if Global.equipped_avatar == "frost":
+			current_freeze_time *= 1.5
+			print("Frost Passive Ability Used!!!!")
 		
 		Global.is_freeze_active = true
 		if ui_clock: 
 			ui_clock.show()
-		active_timer.start(6.0)
+		active_timer.start(current_freeze_time)
 
 func _on_active_timer_timeout():
 	Global.is_freeze_active = false

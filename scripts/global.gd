@@ -37,6 +37,17 @@ var avatars = {
 		"scene_path": "res://avatars/aero.tscn",
 		"icon_path":"res://avatars/aero_icon.tres" #
 	},
+	
+	"frost":{
+		"name": "Frost",
+		"desc": "Cold but with a hot head",
+		"story": "Made in an experiment to handle sub-zero trmperatures, equipped with super coolant to freeze the viruses for a longer time",
+		"unlocked": false,
+		"unlock_condition": "Survive 5 mins in normal mode",
+		"ability": "50% more freeze time",
+		"scene_path": "res://avatars/frost.tscn",
+		"icon_path":"res://avatars/frost_icon.tres" #
+	}
 }
 
 var is_speed_active: bool = false
@@ -66,10 +77,18 @@ func save_scores():
 		file.store_var(high_scores)
 
 func check_unlocks():
+	#AERO
 	if avatars["aero"]["unlocked"] == false:
 		if current_run_time >= 120.0 and difficulty == "hard":
 			avatars["aero"]["unlocked"] = true
 			print("ACHIEVEMENT UNLOCKED: Aero!")
+			save_unlocks()
+	
+	#FROST
+	if avatars["frost"]["unlocked"] == false:
+		if current_score >= 150 and difficulty == "normal":
+			avatars["frost"]["unlocked"] = true
+			print("ACHIEVEMENT UNLOCKED: Frost!")
 			save_unlocks()
 
 func save_unlocks():
@@ -82,11 +101,13 @@ func save_unlocks():
 func load_unlocks():
 	if FileAccess.file_exists(UNLOCKS_SAVE_PATH):
 		var file = FileAccess.open(UNLOCKS_SAVE_PATH, FileAccess.READ)
-		var unlocked_bots = file.get_var()
-		if unlocked_bots != null:
-			for bot in unlocked_bots:
-				if avatars.has(bot):
-					avatars[bot]["unlocked"]= true
+		
+		if file.get_length() >0:
+			var unlocked_bots = file.get_var()
+			if unlocked_bots != null:
+				for bot in unlocked_bots:
+					if avatars.has(bot):
+						avatars[bot]["unlocked"]= true
 
 func load_scores():
 	if FileAccess.file_exists(SAVE_PATH):

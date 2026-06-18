@@ -8,6 +8,7 @@ extends Area2D
 @onready var ui_clock = $"../UILayer/InfiniteClock" 
 
 var screen_size
+var infinite_power_time = 10.0
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -43,14 +44,16 @@ func _on_despawn_timer_timeout():
 	spawn_timer.start() 
 
 func _on_area_entered(area):
-	if area.name == "Player":
+	if area.is_in_group("Player"):
 		position.y = -1000
 		despawn_timer.stop()
+		
+		var current_infinite_power_time = infinite_power_time
 		
 		Global.is_infinite_active = true
 		if ui_clock: 
 			ui_clock.show()
-		active_timer.start(10.0)
+		active_timer.start(current_infinite_power_time)
 
 func _on_active_timer_timeout():
 	Global.is_infinite_active = false

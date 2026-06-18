@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dn0tws18ikr05"]
+
+[ext_resource type="Script" uid="uid://bvfskto6m7vm7" path="res://scripts/sprite_2d.gd" id="1_hd8q1"]
+[ext_resource type="Texture2D" uid="uid://i6xyjdobsxbl" path="res://assests/images/Frost.png" id="2_3sjol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir8iy"]
+radius = 25.005
+
+[node name="Player" type="Area2D" unique_id=2028080896 groups=["Player"]]
+z_index = 1
+script = ExtResource("1_hd8q1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=397164016]
+position = Vector2(0, 1.5)
+shape = SubResource("CircleShape2D_ir8iy")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1373917910]
+position = Vector2(-9.536743e-07, 10.500007)
+scale = Vector2(0.124031, 0.13283582)
+texture = ExtResource("2_3sjol")
+region_enabled = true
+region_rect = Rect2(447.21942, 28.073822, 516.41425, 670.48254)

@@ -9,6 +9,7 @@ extends Area2D
 var screen_size
 var last_spawn_score = 0
 var score_gap = 20
+var speed_time = 10
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -44,14 +45,16 @@ func _on_despawn_timer_timeout():
 	last_spawn_score = Global.final_score 
 
 func _on_area_entered(area):
-	if area.name == "Player":
+	if area.is_in_group("Player"):
 		position.y = -1000
 		despawn_timer.stop()
+		
+		var current_speed_time = speed_time
 		
 		Global.is_speed_active = true
 		if ui_clock: 
 			ui_clock.show()
-		active_timer.start(15.0)
+		active_timer.start(current_speed_time)
 
 func _on_active_timer_timeout():
 	Global.is_speed_active = false

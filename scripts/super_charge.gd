@@ -16,7 +16,7 @@ func _on_timer_timeout() -> void:
 	position.y = -1000
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.name == "Player":
+	if area.is_in_group("Player"):
 		charge_label.add_super_power()
 		get_parent().get_node("SuperChargeSound").play()
 		position.y = -1000
