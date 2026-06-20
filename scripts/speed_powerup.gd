@@ -51,6 +51,10 @@ func _on_area_entered(area):
 		
 		var current_speed_time = speed_time
 		
+		if Global.equipped_avatar == "ardor":
+			current_speed_time *= 1.3
+			print("Ardor's Ability Used!!!")
+		
 		Global.is_speed_active = true
 		if ui_clock: 
 			ui_clock.show()

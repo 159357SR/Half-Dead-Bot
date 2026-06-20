@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://2wne4ee21gwx"]
+
+[ext_resource type="Script" uid="uid://bvfskto6m7vm7" path="res://scripts/sprite_2d.gd" id="1_fben8"]
+[ext_resource type="Texture2D" uid="uid://wtykly07q7mj" path="res://assests/images/Ardor_0.1.png" id="2_fben8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir8iy"]
+radius = 23.04886
+
+[node name="Player" type="Area2D" unique_id=2028080896 groups=["Player"]]
+z_index = 1
+script = ExtResource("1_fben8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=397164016]
+position = Vector2(0, 1.5)
+shape = SubResource("CircleShape2D_ir8iy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1373917910]
+position = Vector2(1.7285347e-06, 11)
+scale = Vector2(0.1037567, 0.104109585)
+texture = ExtResource("2_fben8")

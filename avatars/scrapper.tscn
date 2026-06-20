@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dfir81ifhjpq4" path="res://assests/images/—Pngtree—robot logo icon logo technology_10843943.png" id="2_ejgki"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ir8iy"]
-radius = 25.005
+radius = 24.005207
 
 [node name="Player" type="Area2D" unique_id=2028080896 groups=["Player"]]
 z_index = 1

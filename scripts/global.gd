@@ -43,10 +43,21 @@ var avatars = {
 		"desc": "Cold but with a hot head",
 		"story": "Made in an experiment to handle sub-zero trmperatures, equipped with super coolant to freeze the viruses for a longer time",
 		"unlocked": false,
-		"unlock_condition": "Survive 5 mins in normal mode",
-		"ability": "50% more freeze time",
+		"unlock_condition": "Score 150 in normal mode",
+		"ability": "20% more freeze time",
 		"scene_path": "res://avatars/frost.tscn",
 		"icon_path":"res://avatars/frost_icon.tres" #
+	},
+	
+	"ardor":{
+		"name": "Ardor",
+		"desc": "Always eager to go fast and faster",
+		"story": "Ardor is always eager and tempted towards speed making him go fast for a bit longer",
+		"unlocked": false,
+		"unlock_condition": "Survive 5 mins in hard mode",
+		"ability": "30% more speed up time",
+		"scene_path": "res://avatars/ardor.tscn",
+		"icon_path":"res://avatars/ardor_icon.tres" #
 	}
 }
 
@@ -90,6 +101,14 @@ func check_unlocks():
 			avatars["frost"]["unlocked"] = true
 			print("ACHIEVEMENT UNLOCKED: Frost!")
 			save_unlocks()
+	
+	#ARDOR
+	if avatars["ardor"]["unlocked"] == false:
+		if current_run_time >= 300 and difficulty == "hard":
+			avatars["frost"]["unlocked"] = true
+			print("ACHIEVEMENT UNLOCKED: Ardor!")
+			save_unlocks()
+	
 
 func save_unlocks():
 	var _file = FileAccess.open(UNLOCKS_SAVE_PATH, FileAccess.WRITE)

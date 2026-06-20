@@ -51,7 +51,7 @@ func _on_area_entered(area):
 		var current_freeze_time = freeze_time
 		
 		if Global.equipped_avatar == "frost":
-			current_freeze_time *= 1.5
+			current_freeze_time *= 1.2
 			print("Frost Passive Ability Used!!!!")
 		
 		Global.is_freeze_active = true

@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://cowv2s8wjrx7q"]
+
+[ext_resource type="Texture2D" uid="uid://wtykly07q7mj" path="res://assests/images/Ardor_0.1.png" id="1_871o2"]
+
+[resource]
+atlas = ExtResource("1_871o2")
+region = Rect2(-4.687378, 17.683752, 565.8275, 715.8288)
